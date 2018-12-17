@@ -36,7 +36,9 @@ String String::operator+(String const& st) const
     char* s = new char[std::strlen(str) + std::strlen(st.str) + 1];
     std::strcpy(s, str);
     std::strcat(s, st.str);
-    return s;
+    String str(s);
+    delete[] s;
+    return str;
 }
 
 String operator+(char const* s, String const& st)
